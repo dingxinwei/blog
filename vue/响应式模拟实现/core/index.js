@@ -1,14 +1,16 @@
+import { observe } from './observer'
+import { compile } from './compile'
 /**
  * 根实例
  * @param {*} option 
  */
-function SelfVue(option) {
+window.SelfVue = function(option) {
   this.data = option.data;
   this.el = option.el;
-  Object.assign(this,option.methods);
+  this.proxy();
+  Object.assign(this, option.methods);
   observe(this.data);
   compile(this.el, this.data, this);
-  this.proxy();
 }
 SelfVue.prototype.proxy = function() {
   const keys = Object.keys(this.data);

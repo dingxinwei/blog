@@ -1,7 +1,8 @@
+import { popTarget, pushTarget } from './utils'
 /**
  * 订阅者
  */
-class Watcher {
+export class Watcher {
   constructor(vm, cb, exp) {
     this.cb = cb;
     this.vm = vm;
@@ -9,6 +10,7 @@ class Watcher {
     this.deps = [];
     pushTarget(this);
     this.value = this.vm.data[exp];
+    popTarget();
   }
   addDep(dep) {
     this.deps.push(dep);
@@ -21,6 +23,6 @@ class Watcher {
     this.cb(this.vm[this.exp]);
   }
   cleaup() {
-    
+    this.deps.length = 0;
   }
 }

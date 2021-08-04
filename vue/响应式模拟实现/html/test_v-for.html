@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test selfvue</title>
+</head>
+<body>
+  <div id='app'>
+    <p v-for="msg"></p>
+  </div>
+  <script src="../dist/index.js"></script>
+  <script>
+    let el = document.querySelector('#app');
+    let app = new SelfVue({
+      el,
+      data: {
+        msg: [1,2,3,4,5]
+      },
+      methods: {
+        test() {
+          console.log('test', this.msg);
+          this.msg='test selfvue update'
+          this.say();
+        },
+        say() {
+          console.log('say');
+        }
+      },
+    })  
+  </script>
+</body>
+</html>

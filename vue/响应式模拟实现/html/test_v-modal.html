@@ -4,22 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>test selfvue</title>
+  <title>Document</title>
 </head>
 <body>
   <div id='app'>
     <p>{{msg}}</p>
-    <input type="text" v-modal='msg'/>
+    <input type="text" v-modal="msg"/>
   </div>
-  <script src="../core/index.js"></script>
-  <script src="../core/compile.js"></script>
-  <script src="../core/dep.js"></script>
-  <script src="../core/observer.js"></script>
-  <script src="../core/utils.js"></script>
-  <script src="../core/watcher.js"></script>
+  <script src="../dist/index.js"></script>
   <script>
-    var el = document.querySelector('#app');
-    var app = new SelfVue({
+    let el = document.querySelector('#app');
+    let app = new SelfVue({
       el,
       data: {
         msg: 'hello selfvue'

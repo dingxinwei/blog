@@ -1,7 +1,7 @@
 /**
  * 订阅器 调度中心
  */
-class Dep {
+export class Dep {
   static target;
   subs;
   constructor() {
