@@ -6,10 +6,9 @@ import { Watcher } from './watcher'
  * @param {*} data 
  * @param {*} vm 
  */
-export function compile(el, data, vm) {
+ export function compile(el, data, vm) {
   const firstNode = el.firstElementChild;
-  const secondNode = el.lastElementChild.nextElementSibling;
-
+  const secondNode = el.firstElementChild.nextElementSibling;
   renderMastache(firstNode, data);
   renderVModal(firstNode, secondNode, vm);
   renderVFor(firstNode, vm, el);
@@ -34,7 +33,7 @@ function renderMastache(node, data) {
  * @param {*} vm 
  */
 function renderVModal(firstNode, secondNode, vm) {
-  if(secondNode && Object.prototype.hasOwnProperty.call(secondNode.attributes, 'v-for')) {
+  if(secondNode && Object.prototype.hasOwnProperty.call(secondNode.attributes, 'v-modal')) {
     let exp = secondNode.attributes[1].value;
     let val = vm.data[exp];
     secondNode.value = val;
