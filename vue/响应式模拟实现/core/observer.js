@@ -5,16 +5,14 @@ import { arrayMethodsProto } from './utils';
   */
 class Observer {
   constructor(value) {
-    const val = Object.values(value);
-    if (Array.isArray(val[0])) {
-      val[0].__proto__ = arrayMethodsProto;
-    }
     this.walk(value);
   }
   walk(obj) {
-    const keys = Object.keys(obj);
-    for(let i=0; i<keys.length; i++) {
-      this.defineReactive(obj, keys[i], obj[keys[i]]);
+    for(const key in obj) {
+      if (Array.isArray(obj[key])) {
+        obj[key].__proto__ = arrayMethodsProto;
+      }
+      this.defineReactive(obj, key, obj[key]);
     }
   }
   defineReactive(obj, key, val) {

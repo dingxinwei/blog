@@ -4,35 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>test selfvue</title>
 </head>
 <body>
   <div id='app'>
-    <p>{{msg}}</p>
-    <p>{{hello}}</p>
-    <p>{{a}} <span>{{b}}</span></p>
+   <input type="text" v-if="msg"/>
   </div>
-  <!-- <script src="../core/index.js"></script>
+  <!-- <script src="../core/index.js" ></script>
   <script src="../core/compile.js"></script>
   <script src="../core/dep.js"></script>
-  <script src="../core/observer.js"></script>
-  <script src="../core/utils.js"></script>
-  <script src="../core/watcher.js"></script> -->
+  <script src="../core/observer.js" ></script>
+  <script src="../core/utils.js" ></script>
+  <script src="../core/watcher.js" ></script> -->
   <script src="../dist/index.js"></script>
   <script>
-    let el = document.querySelector('#app');
-    let app = new SelfVue({
+    var el = document.querySelector('#app');
+    var app = new SelfVue({
       el,
       data: {
-        msg: 'hello selfvue',
-        hello: 'hello',
-        a: 'a',
-        b: 'b'
+        msg: 'test selfvue'
       },
       methods: {
         test() {
           console.log('test', this.msg);
-          this.msg='test selfvue update'
+          this.msg='测试更新'
           this.say();
         },
         say() {
