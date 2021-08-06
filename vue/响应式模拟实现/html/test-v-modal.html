@@ -11,10 +11,12 @@
     <p>{{ msg }}</p>
     <p>{{ hello }}</p>
     <p>{{ hello1 }}</p>
+    <p>{{ num }}</p>
     <input type="text" v-modal='msg' placeholder="输入msg的值"/> <br />
     <input type="text" v-modal='hello' placeholder="输入hello的值"/> <br />
     <input type="text" v-modal='hello1' placeholder="输入hello1的值"/> <br />
-    <button @click="test">点击</button> <br />
+    <button @click="add">点击+</button> <br />
+    <button @click="sub">点击-</button> <br />
     <span v-if="msg">test</span> <br />
     <li v-for="item of arr">{{ item }}</li>
   </div>
@@ -34,13 +36,19 @@
         hello: 'hello',
         hello1: 'hello1',
         arr: [1,2,3,4,5],
+        num: 0
       },
       methods: {
-        test() {
+        add() {
           console.log('test', this.msg);
+          this.num++;
           // this.msg='test selfvue update'
-          this.arr.push(6);
+          //this.arr.push(this.arr[this.arr.length-1]+1);
           this.say();
+        },
+        sub() {
+          this.num--;
+         //this.arr.pop();
         },
         say() {
           console.log('say');
